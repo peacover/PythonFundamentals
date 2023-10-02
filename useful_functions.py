@@ -6,8 +6,23 @@ print(my_str1)
 my_str2 = ": ".join(my_str1)
 print(my_str2)
 
-# to string
+# remove first and last spaces
+my_str = "    |this is       a test|   "
+print(my_str.strip())
+print(my_str.lstrip())
+print(my_str.rstrip())
 
+x = 2e8
+y = 3e10
+z = x + y
+print(f"{z:,} | {int(z):,}")
+# another annotation of round
+x = 2.675
+y = 3.123
+z = x + y
+print(f"{z:.2f} | {round(z, 2)}")
+
+# to string
 num = 14
 to_str = str(50)
 print(to_str, type(to_str))
@@ -79,3 +94,41 @@ to_dict = dict(zip(players, scores))
 print(to_dict)
 to_list = list(zip(players, scores))
 print(to_list)
+
+print("----------------------------")
+
+import random
+tmp_str = ["test1", "test2", "test3", "test4", "test5"]
+# copy list
+# test = tmp_str.copy()
+test = tmp_str[:]
+random.shuffle(test)
+print(tmp_str)
+print(test)
+for item in sorted(test):
+    print(item)
+print("----------------------------")
+
+for item in sorted(test, reverse=True):
+    print(item)
+print("----------------------------")
+
+for item in reversed(test):
+    print(item)
+print("----------------------------")
+print(test)
+# sorted(test) create a new list
+# test.sort() modify the list
+
+print("----------------------------")
+
+students = [{"name": "Student1", "score": 90}, {"name": "Student2", "score": 40}, {"name": "Student3", "score": 70}]
+
+def get_score(student):
+    return student["score"]
+
+for student in sorted(students, key=get_score):
+    print(student)
+print("----------------------------")
+for student in sorted(students, key=lambda item: item["score"]):
+    print(student)
